@@ -1,0 +1,21 @@
+{
+  "name": "news-explorer-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon --watch index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmilyWetterauer/news-explorer-backend.git"
+  },
+  "author": "emma wetterauer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EmilyWetterauer/news-explorer-backend/issues"
+  },
+  "homepage": "https://github.com/EmilyWetterauer/news-explorer-backend#readme"
+}
