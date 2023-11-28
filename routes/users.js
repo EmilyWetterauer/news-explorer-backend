@@ -4,8 +4,6 @@ const router = require("express").Router();
 
 const auth = require("../middlewares/auth");
 
-//TOD create users.js file in controllers folder.  create getCurrentUser function in that file.
-
 const { getCurrentUser } = require("../controllers/users");
 
 router.get("/me", auth, getCurrentUser);
