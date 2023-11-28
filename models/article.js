@@ -49,3 +49,5 @@ const article = new mongoose.Schema({
     select: false,
   },
 });
+
+module.exports = mongoose.model("article", article);
