@@ -40,7 +40,22 @@ const getCurrentUser = (req, res, next) => {
     .catch(next);
 };
 
+function login(req, res, next) {
+  const { email, password } = req.body;
+  User.findUserByCredentials(email, password)
+    .then((user) => {
+      const token = jwt.sign({ _id: user._id }, JWT_SECRET, {
+        expiresIn: "7d",
+      });
+      res.send({ token });
+    })
+    .catch(() => {
+      next(new UnauthorizedError("Incorrect email or password"));
+    });
+}
+
 module.exports = {
   createUser,
   getCurrentUser,
+  login,
 };

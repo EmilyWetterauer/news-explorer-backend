@@ -3,7 +3,6 @@ const router = require("express").Router();
 const articles = require("./articles");
 const users = require("./users");
 
-//TODO create login function inside users.js file
 const { createUser, login } = require("../controllers/users");
 //TODO create utils folder and NotFoundError.js File.  create NotFoundError function
 const { NotFoundError } = require("../utils/NotFoundError");
