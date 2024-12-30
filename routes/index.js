@@ -4,10 +4,9 @@ const articles = require("./articles");
 const users = require("./users");
 
 const { createUser, login } = require("../controllers/users");
-//TODO create utils folder and NotFoundError.js File.  create NotFoundError function
+
 const { NotFoundError } = require("../utils/NotFoundError");
 
-//TODO create validateUserAuthentication function and validateUserInfoBody function in validation.js file.
 const {
   validateUserAuthentication,
   validateUserInfoBody,

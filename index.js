@@ -8,16 +8,14 @@ require("dotenv").config();
 
 const app = express();
 const cors = require("cors");
-//TODO create errorHandler function
 const { errorHandler } = require("./middlewares/errorHandler");
 
 app.use(cors());
 
-//TODO create requestLogger and errorLogger functions
 const { requestLogger, errorLogger } = require("./middlewares/logger");
 
 mongoose
-  .connect("mongodb://localhost:27017/wtwr_db")
+  .connect("mongodb://localhost:27017/sprint16")
   .then(() => {
     console.log("Connected to MongoDB");
   })

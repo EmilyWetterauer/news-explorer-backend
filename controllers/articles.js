@@ -1,4 +1,3 @@
-//TODO create NotFoundError and ForbiddenError and BadRequestError functions.
 const { NotFoundError } = require("../utils/NotFoundError");
 const { ForbiddenError } = require("../utils/ForbiddenError");
 const { BadRequestError } = require("../utils/BadRequestError");

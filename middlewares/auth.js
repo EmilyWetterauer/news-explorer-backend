@@ -1,19 +1,14 @@
 const jwt = require("jsonwebtoken");
 
-//TODO create config.js
-
-const DEFAULT_JWT = require("../utils/config");
-
-const { JWT_SECRET = DEFAULT_JWT } = process.env;
+const { JWT_SECRET } = process.env;
 const { UnauthorizedError } = require("../utils/UnauthorizedError");
 
 function auth(req, res, next) {
   const { authorization } = req.headers;
 
-  //TODO create UnauthorizedError.js function in utils
-
   if (!authorization || !authorization.startsWith("Bearer ")) {
-    next(new UnauthorizedError("authorization required"));
+    //added a return on line 13 so that authorization did not return undefined on line 16
+    return next(new UnauthorizedError("authorization required"));
   }
 
   const token = authorization.replace("Bearer ", "");

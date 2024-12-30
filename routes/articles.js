@@ -2,8 +2,6 @@ const router = require("express").Router();
 
 const auth = require("../middlewares/auth");
 
-//TODO create middlewares folder. validation.js file.   and validateArticleId function
-
 const {
   validateArticleBody,
   validateArticleId,

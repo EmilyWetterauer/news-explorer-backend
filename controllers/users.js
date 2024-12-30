@@ -1,12 +1,35 @@
 const bcrypt = require("bcrypt");
 
-const User = require("../models/user");
+const jwt = require("jsonwebtoken");
 
-//TODO create BadRequestError and ConflictError and NotFoundError functions.
+const { JWT_SECRET } = process.env;
+
+const User = require("../models/user");
+const { UnauthorizedError } = require("../utils/UnauthorizedError");
 
 const { BadRequestError } = require("../utils/BadRequestError");
 const { ConflictError } = require("../utils/ConflictError");
 const { NotFoundError } = require("../utils/NotFoundError");
+
+//**STEPS FOR CREATE USER**//
+
+//VS CODE
+//create function
+//include necessary items for the body
+//authorization?
+//create route in index.js and users.js
+
+//POST MAN
+//sprint 16 folder...index.js folder....articles.js folder...users.js folder
+//add request--name it "createUser" in the index.js folder
+//POST   {{baseUrl}}/signup
+//add object to the body..including {name:, email:, password:}
+//change name and email each time ...press...SEND...to create a new user..then check mongoDB
+
+//MONGODB
+//sprint 16 database.
+//2 folders...users and articles
+//data should show up in these 2 folders if given routes are accurate
 
 function createUser(req, res, next) {
   const { name, email, password } = req.body;
@@ -49,7 +72,8 @@ function login(req, res, next) {
       });
       res.send({ token });
     })
-    .catch(() => {
+    .catch((e) => {
+      console.log("e", e);
       next(new UnauthorizedError("Incorrect email or password"));
     });
 }
